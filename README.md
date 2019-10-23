@@ -55,8 +55,8 @@ If not, please contact us to help you resolve the issue.
 
 ## Formally Verify a simple Verilog example
 
-Take a look at the example: [counter.v](counter.v). We have one formal property, an assertion that the counter will always be less than `MAX_AMOUNT`
-[counter.sby](counter.sby) is the configuration file for sby.
+Take a look at the example: [counter.v](counter.v). We have one formal property, an assertion that the counter will always be less than `MAX_AMOUNT`.
+[counter.sby](counter.sby) is the [configuration file](https://symbiyosys.readthedocs.io/en/latest/reference.html).
 
 Run this command to Formally Verify the counter example:
 
@@ -75,7 +75,32 @@ To learn more about Formal Verification, see the [resources section below](#Reso
 
 ## Formally Verify a simple VHDL example
 
+The tools currently don't support VHDL formal properties. The work-around is to write the formal properties with System Verilog Assertions and then bind
+that to the module under test.
+
+Take a look at the example: [counter.vhd](counter.vhd). 
+To define the a formal properties, we created [counter_vhd.sv](counter_vhd.sv). In this file we make an assertion that the counter will always be less than `MAX_AMOUNT`.
+
+[counter_vhd.sby](counter_vhd.sby) is the [configuration file](https://symbiyosys.readthedocs.io/en/latest/reference.html).
+
+Run this command to Formally Verify the counter example:
+
+    sby -f counter_vhd.sby
+
+The `-f` switch removes previous test results. You will see some log output from the tool and the last line shows the result: FAIL.
+When the tools find a way to break an assertion they generate a trace file. 
+
+* If the test failed bounded model checking (BMC), the trace will be written to counter_vhd/engine_0/trace.vcd. 
+* If the test failed induction, the trace will be written to counter_vhd/engine_0/trace_induct.vcd.
+
+The BMC failed because the solver was able to set the initial value of the count register to a value greater than `MAX_AMOUNT`. 
+Fix this by setting a default value for the register and then run the verification again. 
+
+To learn more about Formal Verification, see the [resources section below](#Resources)
+
 # Resources
 
-* https://symbiyosys.readthedocs.io/en/latest/
+* Symbiyosys docs https://symbiyosys.readthedocs.io/en/latest/
 * Dan Gisslequist's blog contains a lot of posts about FV: http://zipcpu.com/
+* Videos and Presentations on Formal Verification: https://www.youtube.com/c/SymbioticEDA
+* You can also request a demo or book a training course by contacting us at https://www.symbioticeda.com/
