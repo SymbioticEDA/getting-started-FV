@@ -15,7 +15,7 @@ Make sure you change the text below to match your package and license names.
 Typically you will install the tools like this:
 
     cd /opt
-    sudo tar -tzf ~/Downloads/symbiotic-20190924B-symbiotic.tar.gz
+    sudo tar -xzf ~/Downloads/symbiotic-20190924B-symbiotic.tar.gz
 
 Then include this new directory in your PATH environment variable:
 
