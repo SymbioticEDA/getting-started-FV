@@ -23,7 +23,7 @@ Then include this new directory in your PATH environment variable:
 
 If you want to make this change permanent, add it to your .bashrc file:
 
-    echo 'export PATH=$PATH:/opt/symbiotic-20190924B-symbiotic/bin"' >> ~/.bashrc
+    echo 'export PATH=$PATH:/opt/symbiotic-20190924B-symbiotic/bin' >> ~/.bashrc
 
 Save the license file to a safe place:
 
