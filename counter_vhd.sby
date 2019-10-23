@@ -1,0 +1,16 @@
+[options]
+mode bmc
+
+[engines]
+smtbmc
+
+[script]
+verific -vlog-define FORMAL
+verific -vhdl counter.vhd
+verific -sv counter_vhd.sv
+verific -import -extnets -all counter
+prep -top counter
+
+[files]
+counter.vhd
+counter_vhd.sv

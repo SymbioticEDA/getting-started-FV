@@ -1,0 +1,13 @@
+[options]
+mode prove
+depth 10
+
+[engines]
+smtbmc
+
+[script]
+read_verilog -formal counter.v
+prep -top counter
+
+[files]
+counter.v

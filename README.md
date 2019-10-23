@@ -8,7 +8,7 @@ It assumes you are using the Symbiotic Suite. If that is not the case you can le
 
 You will have been sent the license and a link to download the tools. 
 For this example we will assume the tool package has been downloaded to ~/Downloads/symbiotic-20190924B-symbiotic.tar.gz
-And the license has been downloaded to ~/Downloads/symbiotic-eval.lic
+and the license has been downloaded to ~/Downloads/symbiotic-eval.lic
 
 Make sure you change the text below to match your package and license names.
 
@@ -52,6 +52,28 @@ This will start yosys in shell mode and you should see that your license is veri
     [license] Signature verified.
 
 If not, please contact us to help you resolve the issue.
+
+## Formally Verify a simple Verilog example
+
+Take a look at the example: [counter.v](counter.v). We have one formal property, an assertion that the counter will always be less than `MAX_AMOUNT`
+[counter.sby](counter.sby) is the configuration file for sby.
+
+Run this command to Formally Verify the counter example:
+
+    sby -f counter.sby
+
+The `-f` switch removes previous test results. You will see some log output from the tool and the last line shows the result: FAIL.
+When the tools find a way to break an assertion they generate a trace file. 
+
+* If the test failed bounded model checking (BMC), the trace will be written to counter/engine_0/trace.vcd. 
+* If the test failed induction, the trace will be written to counter/engine_0/trace_induct.vcd.
+
+The BMC failed because the solver was able to set the initial value of the count register to a value greater than `MAX_AMOUNT`. 
+Fix this by setting a default value for the register and then run the verification again. 
+
+To learn more about Formal Verification, see the [resources section below](#Resources)
+
+## Formally Verify a simple VHDL example
 
 # Resources
 
