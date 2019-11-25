@@ -19,11 +19,11 @@ Typically you will install the tools like this:
 
 Then include this new directory in your PATH environment variable:
 
-    export PATH=$PATH:/opt/symbiotic-20190924B-symbiotic/bin
+    export PATH=/opt/symbiotic-20190924B-symbiotic/bin:$PATH
 
 If you want to make this change permanent, add it to your .bashrc file:
 
-    echo 'export PATH=$PATH:/opt/symbiotic-20190924B-symbiotic/bin' >> ~/.bashrc
+    echo 'export PATH=/opt/symbiotic-20190924B-symbiotic/bin:$PATH' >> ~/.bashrc
 
 Save the license file to a safe place:
 
@@ -31,11 +31,11 @@ Save the license file to a safe place:
 
 And create a new environment variable so the tools can find it:
 
-    export SYMBIOTIC_LICENSE="~/symbiotic-eval.lic"
+    export SYMBIOTIC_LICENSE="$HOME/symbiotic-eval.lic"
 
 If you want to make this permament, add it to your .bashrc file:
 
-    echo 'export SYMBIOTIC_LICENSE="~/symbiotic-eval.lic"' >> ~/.bashrc
+    echo 'export SYMBIOTIC_LICENSE="$HOME/symbiotic-eval.lic"' >> ~/.bashrc
 
 ## Check the tools are installed correctly
 
