@@ -6,7 +6,7 @@ depth 10
 smtbmc
 
 [script]
-read_verilog -formal counter.v
+read -formal counter.v
 prep -top counter
 
 [files]
