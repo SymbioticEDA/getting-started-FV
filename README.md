@@ -2,8 +2,6 @@
 
 This short guide aims to get you started with the [Symbiotic EDA](https://www.symbioticeda.com/) Formal Verification tools.
 
-It assumes you are using the Symbiotic Suite. If that is not the case you can learn how to [build and install the tools here](https://symbiyosys.readthedocs.io/en/latest/quickstart.html#installing).
-
 ## Install the tools and the license
 
 You will have been sent the license and a link to download the tools. 
