@@ -55,9 +55,9 @@ begin
 	process(i_clk)
 	begin
 		if (rising_edge(i_clk)) then
-			if ((i_start_signal = '1') and (0 = counts)) then
+			if ((i_start_signal = '1') and (counts = 0)) then
 				counts <= to_unsigned(MAX_AMOUNT-1, 16);
-			else
+			elsif (counts /= 0) then
 				counts <= counts - 1;
 			end if;
 		end if;
@@ -66,9 +66,9 @@ begin
 	process(all)
 	begin
 		if (0 = counts) then
-			o_busy <= '1';
-		else
 			o_busy <= '0';
+		else
+			o_busy <= '1';
 		end if;
 	end process;
 
