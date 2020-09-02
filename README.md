@@ -45,11 +45,13 @@ This should return the path where yosys is installed in /opt/symbiotic
 
     yosys
 
-This will start yosys in shell mode and you should see that your license is verified (press ctrl+D to exit):
+This will start yosys in shell mode and you should see that your license is verified:
 
     [license] Signature verified.
 
 If not, please contact us to help you resolve the issue.
+
+Then press ctrl+D or type 'exit' to exit yosys.
 
 ## Formally Verify a simple Verilog example
 
@@ -99,6 +101,7 @@ To learn more about Formal Verification, see the [resources section below](#Reso
 # Resources
 
 * Symbiyosys docs https://symbiyosys.readthedocs.io/en/latest/
-* Dan Gisslequist's blog contains a lot of posts about FV: http://zipcpu.com/
+* Some examples to try: https://github.com/YosysHQ/SymbiYosys/tree/master/docs/examples
 * Videos and Presentations on Formal Verification: https://www.youtube.com/c/SymbioticEDA
+* Dan Gisslequist's blog contains a lot of posts about FV: http://zipcpu.com/
 * You can also request a demo or book a training course by contacting us at https://www.symbioticeda.com/
